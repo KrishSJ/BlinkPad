@@ -11,11 +11,6 @@ class App extends Component {
 
     this.state = {
       counters: [],
-      //   { id: 1, score: 4 },
-      //   { id: 2, score: 3 },
-      //   { id: 3, score: 2 },
-      //   { id: 4, score: 1 },
-      // ],
     };
   }
   componentWillMount = () => {
@@ -65,9 +60,7 @@ class App extends Component {
     const index = counters.indexOf(counter);
     console.log(counters[index]);
     //counters[index] = { ...counter };
-
     counters[index].score--;
-    console.log("----------", counters[index]);
 
     axios
       .put("http://localhost:3002/dislike", counters[index])
@@ -91,7 +84,7 @@ class App extends Component {
           <Navbar.Brand>Nithin Krishna</Navbar.Brand>
           <Nav className="ml-auto">
             <Nav.Link
-              href="https://www.linkedin.com/in/nithin-gollanapally/"
+              href="https://github.com/KrishSJ/BlinkPad"
               style={{ color: "#FFF" }}
               target="_blank"
             >

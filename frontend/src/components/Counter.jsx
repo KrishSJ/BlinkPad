@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { Card, Button, Row, Col } from "react-bootstrap";
+import { Card, Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
-// import img from "../../src/pic1.jpeg";
 
 class Counter extends Component {
   styles = {
