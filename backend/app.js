@@ -2,32 +2,14 @@ var express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+const { connectMongoDB } = require("./connection");
 const cors = require("cors");
+
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
-
-const mongoDBURI =
-  "mongodb+srv://nithin:nithin@grubhubtest-ly2ht.mongodb.net/BlinkPad?retryWrites=true&w=majority";
-
-const connectMongoDB = async () => {
-  const options = {
-    poolSize: 900,
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  };
-
-  try {
-    await mongoose.connect(mongoDBURI, options);
-    console.log("MongoDB connected");
-  } catch (err) {
-    console.log("Could not connect to MongoDB", err);
-  }
-};
 
 connectMongoDB();
 

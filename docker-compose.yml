@@ -1,0 +1,27 @@
+version: "3"
+services:
+  frontend:
+    container_name: docker-blinkpad
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - /app/node_modules
+      - ./frontend:/app
+    ports:
+      - "3000:3000"
+    restart: on-failure
+    stdin_open: true
+    tty: true
+
+  backend:
+    container_name: docker-blinkpad-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"
+    restart: on-failure
+    volumes:
+      - /app/node_modules # Inside the container, don't try to override this folder, just leave as is
+      - ./backend:/app # Look at the server directory and copy everything into the app folder in the container
